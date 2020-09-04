@@ -1,8 +1,12 @@
 package dev.lucasliet.readthread;
 
+import java.util.Scanner;
+
 public class ReadNames {
 	public static void main(String[] args) {
-		String nome = "da";
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Digite o nome, ou parte do nome que deseja procurar nos arquivos:");
+		String nome = scan.next();
 		
 		new Thread(
 				new ReadThread("autores.txt", nome),

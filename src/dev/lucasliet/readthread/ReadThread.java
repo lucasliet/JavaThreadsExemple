@@ -33,10 +33,16 @@ public class ReadThread implements Runnable {
 				lineNumber++;
 			}
 			
-			if (!lines.isEmpty())
+			if (!lines.isEmpty()) {
+				final String[] result = {""};
+				
 				lines.forEach((key, value) -> {
-					System.out.printf("[ %16s - %3s - %-18s ]%n", file, key, value);
+					result[0]+= String.format("[ %16s - %3s - %-18s ]%n", file, key, value);
 				});
+				
+				result[0]+=String.format("[ %18s %s %20s ]%n", " ", "END", " ").replace(' ', '-');
+				System.out.print(result[0]);
+			}
 			
 		} catch (FileNotFoundException e) {
 			throw new RuntimeException(e);
