@@ -40,7 +40,7 @@ public class ReadThread implements Runnable {
 					result[0]+= String.format("[ %16s - %3s - %-18s ]%n", file, key, value);
 				});
 				
-				result[0]+=String.format("[ %18s %s %20s ]%n", " ", "END", " ").replace(' ', '-');
+				result[0]+=String.format("[ %32s %10s ]%n", "END " + Thread.currentThread().getName() , " ").replace(' ', '-');
 				System.out.print(result[0]);
 			}
 			
